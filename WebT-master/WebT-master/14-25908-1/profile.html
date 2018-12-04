@@ -1,0 +1,185 @@
+
+<html>
+<head>
+	<title>Profile</title>
+<style>
+	.table
+	{
+		border: 1px solid black;
+
+	}
+</style>
+
+</head>
+<body>
+	<form name="RegForm" method="POST">
+<table border="1" >
+	 <caption>Person Profile</caption>
+	<tr>
+		<td>Name</td>
+		<td><input type="text" name="name" id="name" onblur="namev()"></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>Email</td>
+		<td><input type="text" name="Email" id="email" onblur="emailv()"></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>Gender</td>
+		<td>
+			<input type="radio" name="gender" value="male" id="male" onblur="genderv()">Male
+			<input type="radio" name="gender" value="female" id="female" onblur="genderv()">Female
+			<input type="radio" name="gender" value="other" id="other" onblur="genderv()">Other
+		</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>Date of Birth</td>
+		<td>
+			<input type="number" name="dob" id="day" onblur="dobv()" style="width: 35px;">/
+			<input type="number" name="dob"  id ="month" onblur="dobv()" style="width: 35px;">/
+			<input type="number" name="dob" id="year" onblur="dobv()" style="width: 45px;"><i>(dd/mm/yy)</i>
+		</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>Blood Group</td>
+		<td>
+			<select name="Blood" id="blood" onblur="bloodv()">
+				  <option value="A+" id="a">A+<option>
+				  <option value="B+" id="b">B+<option>
+				  <option value="O+" id="o">O+<option>
+	`		</select>
+  		</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>Degree</td>
+		<td>
+			<input type="checkbox" name="Degree" value="" id="ssc" onblur="degreev()">SSC<br>
+			<input type="checkbox" name="Degree" value="" id="hsc" onblur="degreev()">HSC<br>
+			<input type="checkbox" name="Degree" value="" id="bsc" onblur="degreev()">BSc.<br>
+			<input type="checkbox" name="Degree" value="" id="msc" onblur="degreev()">MSc.<br>
+		</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>Photo</td>
+		<td colspan="2">  <input type="file" accept="image/*" name="Photo" id="photo" onblur="photov()"></td>
+
+	</tr>
+	<tr>
+
+		<td colspan="3" align="right">
+			<button type="button" value="Submit">Submit</button>
+			<button type="Reset" value="Reset">Reset</button>
+		</td>
+	</tr>
+</table>
+</form>
+
+<script >
+
+function namev()
+{
+		var name = document.getElementById("name");
+		if (name.value == "")
+		{
+			alert("Please write your name");
+
+		}
+		else if (/[^a-zA-Z\-\.]/.test( "name" )) {
+			alert("Write your name with proper condition");
+
+
+		}
+		else {}
+
+}
+
+function emailv()
+{
+
+	var email = document.getElementById("email");
+
+	if (email.value == "")
+	{
+			alert("Please enter your email");
+
+	}
+	else{}
+
+}
+
+
+function genderv(){
+
+
+
+		var male = document.getElementById("male").checked;
+		var female = document.getElementById("female").checked;
+		var other = document.getElementById("other").checked;
+		if (male == false && female == false && other == false) {
+			alert("Please enter your gender");
+			gender.focus();
+
+		}
+		else{}
+}
+
+function bloodv(){
+		var blood = document.getElementById("blood");
+
+		if (blood.selectedIndex < 1)
+	{
+		alert("Please select your blood group");
+
+	}
+	else{}
+}
+
+	function degreev(){
+
+
+
+		var ssc = document.getElementById("ssc").checked;
+		var hsc = document.getElementById("hsc").checked;
+		var bsc = document.getElementById("bsc").checked;
+		var msc = document.getElementById("msc").checked;
+
+		if (ssc == false && hsc == false && bsc == false || msc == false) {
+			alert("Please select your degree");
+			blood.focus();
+
+		}
+		else{}
+	}
+
+function dobv()
+{
+	var day = document.getElementById("day");
+	var month = document.getElementById("month");
+	var year = document.getElementById("year");
+	if (day.value == "" || month.value == "" || year.value == "") {
+		alert("Please select your date of birth");
+		dob.focus();
+	}
+
+	else{}
+}
+
+function photov()
+{
+		if (!photo.value) {
+		alert("upload a photo");
+		photo.focus();
+
+	}
+	else{}
+
+}
+
+</script>
+</body>
+</html>
